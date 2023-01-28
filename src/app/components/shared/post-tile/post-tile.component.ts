@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
 export class PostTileComponent {
 
   faComments = faComments;
-  @Input() posts?: PostModel[];
+  @Input() posts: PostModel[];
 
   constructor(private router: Router) {
   }

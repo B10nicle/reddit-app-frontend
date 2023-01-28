@@ -1,5 +1,5 @@
 .post{
-    --post-line-color: #ccc;    
+    --post-line-color: #ccc;
     border: 1px solid #ccc;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -11,13 +11,13 @@
     padding:5px;
 }
 
-.btnCommments{
+.btnComments{
     border-radius: 2px solid;
     color: #878A8C;
     opacity: 1;
 }
 
-.btnCommments:hover{
+.btnComments:hover{
     opacity: 0.65;
     cursor: pointer;
 }
@@ -28,7 +28,7 @@
     opacity: 1;
 }
 
-.posturl, .postname{    
+.posturl, .postname{
     color: black;
 }
 

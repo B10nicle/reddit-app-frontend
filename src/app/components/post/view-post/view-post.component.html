@@ -8,17 +8,16 @@
         </div>
         <div class="col-md-11">
           <span>
-            <span class="subreddit-text"><a class="post-url" href="">{{post.subredditName}}</a></span>
-            <span> . Posted
-              <span> {{post.duration}} </span>
-              by
-              <a class="username" href="">{{post.userName}}</a>
+            <span class="subreddit-text"><a class="post-url" href="">{{post?.subredditName}}</a></span>
+            <br>
+            <span>Posted<span> {{post?.duration}} </span>by
+              <a class="username" href="">{{post?.userName}}</a>
             </span>
           </span>
           <hr />
-          <a routerLink="post.url" class="post-title">{{post.postName}}</a>
+          <a routerLink="post.url" class="post-title">{{post?.postName}}</a>
           <div>
-            <p class="post-text" [innerHtml]="post.description"></p>
+            <p class="post-text" [innerHtml]="post?.description"></p>
           </div>
           <div class="post-comment">
             <form [formGroup]="commentForm" (ngSubmit)="postComment()">

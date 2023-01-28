@@ -23,6 +23,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {NgxWebstorageModule} from "ngx-webstorage";
 import {TokenInterceptor} from "./token-interceptor";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {EditorModule} from "@tinymce/tinymce-angular";
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     NgxWebstorageModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    FontAwesomeModule
+    FontAwesomeModule,
+    EditorModule
   ],
   providers: [
     {

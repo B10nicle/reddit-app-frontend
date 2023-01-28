@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {CommentPayload} from "../../comment/comment.payload";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {throwError} from "rxjs";
 import {CommentService} from "../../comment/comment.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
@@ -12,16 +12,17 @@ import {PostModel} from "../../shared/post-model";
   templateUrl: './view-post.component.html',
   styleUrls: ['./view-post.component.css']
 })
-export class ViewPostComponent implements OnInit {
+export class ViewPostComponent {
 
   postId: number;
-  post?: PostModel;
+  post: PostModel;
   commentForm: FormGroup;
   commentPayload: CommentPayload;
-  comments?: CommentPayload[];
+  comments: CommentPayload[];
 
-  constructor(private postService: PostService, private activateRoute: ActivatedRoute,
-              private commentService: CommentService, private router: Router) {
+  constructor(private postService: PostService,
+              private activateRoute: ActivatedRoute,
+              private commentService: CommentService) {
     this.postId = this.activateRoute.snapshot.params['id'];
 
     this.commentForm = new FormGroup({
@@ -31,17 +32,15 @@ export class ViewPostComponent implements OnInit {
       text: '',
       postId: this.postId
     };
-  }
 
-  ngOnInit(): void {
     this.getPostById();
     this.getCommentsForPost();
   }
 
   postComment() {
-    this.commentPayload.text = this.commentForm.get('text')?.value;
+    this.commentPayload.text = this.commentForm.get('text').value;
     this.commentService.postComment(this.commentPayload).subscribe(() => {
-      this.commentForm.get('text')?.setValue('');
+      this.commentForm.get('text').setValue('');
       this.getCommentsForPost();
     }, error => {
       throwError(error);
